@@ -1,0 +1,65 @@
+title = "Conteúdos"
+url = "/conteudos"
+layout = "default"
+id = page
+
+[pages]
+[banners]
+
+==
+<?php
+function onStart(){
+	if(@$_GET['search']) {
+		$this['pgs'] = $this->pages->getBusca($_GET['search']);
+
+		$this['busca'] = urldecode($_GET['search']);
+
+	} else {
+		$this['pgs'] = $this->pages->getAll();
+	}
+	$this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<section id="pages">
+	<div class="container">
+		<h1>{{ 'Conteúdos'|_ }}</h1>		
+
+		<div class="search">   
+            <form class="form-inline" method="GET" action="{{ url('conteudos') }}">
+        		<div class="row justify-content-center">
+			        <div class="col-lg-6">
+			            <input type="text" name="search" class="form-control" placeholder="Buscar:">
+			        </div>
+
+			        <div class="col-lg-2">
+			            <button class="btn btn-green" type="submit">{{ 'BUSCAR'|_ }}</button>
+			        </div>
+			    </div>   
+			</form>
+        </div>
+
+        {% if busca %}<h3>{{ 'Resultado de busca por:'|_ }} <b>{{ busca }}</b></h3>{% endif %}
+
+		<div class="row justify-content-center">
+			{% for pg in pgs %}
+				<div class="col-lg-4">						
+					<a href="{% if pg.link %}{{ pg.link }}{% elseif pg.file %}{{ pg.file.getPath() }}{% else %}{{url(pg.slug) }}{% endif %}" {% if pg.file or pg.link %}target="_blank"{% endif %} class="item">
+						<img src="{{ pg.thumb.getThumb(500,400,'crop') }}" alt="{{ pg.title }}">
+						<h3>{{ pg.title }}</h3>		
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<br>
+
+
+{% put styles %}
+	<link href="{{ ['assets/css/page.pages.css']|theme }}" rel="stylesheet">
+{% endput %}

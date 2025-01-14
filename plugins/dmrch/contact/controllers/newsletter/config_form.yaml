@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: dmrch.contact::lang.base.newsletter
+
+# Model Form Field configuration
+form: $/dmrch/contact/models/newsletter/fields.yaml
+
+# Model Class name
+modelClass: Dmrch\Contact\Models\Newsletter
+
+# Default redirect location
+defaultRedirect: dmrch/contact/newsletter
+
+# Create page
+create:
+    title: dmrch.contact::lang.newsletter.create
+    redirect: dmrch/contact/newsletter/update/:id
+    redirectClose: dmrch/contact/newsletter
+
+# Update page
+update:
+    title: dmrch.contact::lang.newsletter.update
+    redirect: dmrch/contact/newsletter
+    redirectClose: dmrch/contact/newsletter
+
+# Preview page
+preview:
+    title: dmrch.contact::lang.newsletter.preview

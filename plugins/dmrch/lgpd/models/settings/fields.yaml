@@ -1,0 +1,27 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    text:
+        label: Texto
+        type: richeditor
+
+    btn_label:
+        label: Botão
+
+    css: 
+        label: CSS
+        type: textarea
+
+    politica_text: 
+        label: Política de Privacidade (PT)
+        type: richeditor
+
+    politica_text_en: 
+        label: Política de Privacidade (EN)
+        type: richeditor
+
+    politica_text_es: 
+        label: Política de Privacidade (ES)
+        type: richeditor

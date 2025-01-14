@@ -1,0 +1,7 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+columns:
+    name: dmrch.contact::lang.newsletter.name
+    email: dmrch.contact::lang.newsletter.email
+    created_at: dmrch.contact::lang.newsletter.created_at

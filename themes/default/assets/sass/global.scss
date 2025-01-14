@@ -1,0 +1,112 @@
+@import 'variables';
+
+// PADDING
+@for $p from 0 through 5 {
+	.pt-#{$p} {	padding-top: $padding * $p; }    
+  	.pr-#{$p} {	padding-right: $padding * $p; }    
+  	.pb-#{$p} {	padding-bottom: $padding * $p; }    
+  	.pl-#{$p} { padding-left: $padding * $p; }   
+
+  	.p-#{$p} { padding: $padding * $p; } 
+  	.px-#{$p} { padding: $padding * $p 0; }
+  	.py-#{$p} { padding: 0 $padding * $p; }
+}
+
+// MARGIN 
+@for $m from 0 through 5 {
+	.mt-#{$m} {	margin-top: $margin * $m; }    
+  	.mr-#{$m} {	margin-right: $margin * $m; }    
+  	.mb-#{$m} {	margin-bottom: $margin * $m; }    
+  	.ml-#{$m} { margin-left: $margin * $m; }    
+
+  	.m-#{$m} { margin: $margin * $m; } 
+  	.mx-#{$m} { margin: $margin * $m 0; }
+  	.my-#{$m} { margin: 0 $margin * $m; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body{ overflow-x: hidden; }
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1, h2 {
+  color: $color-blue;
+  font-weight: $bold;
+  font-size: 60px;
+}
+
+.btn {
+  font-size: 14px;
+  font-weight: $bold;
+  width: 185px;
+  max-width: 100%;
+} 
+
+.btn-green {
+  background: $color-green;
+  border: none;
+  padding: 0px 5px;
+  border-radius: 5px;
+  color: $color-white;
+  &:hover, &:focus {
+    background: $color-green;
+    color: $color-blue;
+  }
+}
+
+.btn-blue {
+  background: $color-blue;
+  border: none;
+  padding: 0px 5px;
+  border-radius: 5px;
+  color: $color-white;
+  &:hover, &:focus {
+    background: $color-blue;
+    color: $color-green;
+  }
+}
+
+.tns-controls button{
+  border: none;
+  background: no-repeat;
+  color: $color-blue;
+}
+
+@font-face {
+  font-family: Flexo;
+  font-weight: $light;
+  src: url('../fonts/Flexo-Regular.ttf');
+}
+
+@font-face {
+  font-family: Flexo;
+  font-weight: $regular;
+  src: url('../fonts/Flexo-Regular.ttf');
+}
+
+@font-face {
+  font-family: Flexo;
+  font-weight: $medium;
+  src: url('../fonts/Flexo-Regular.ttf');
+}
+
+@font-face {
+  font-family: Flexo;
+  font-weight: $bold;
+  src: url('../fonts/Flexo-Bold.ttf');
+}
+
+@font-face {
+  font-family: Flexo;
+  font-weight: $black;
+  src: url('../fonts/Flexo-Bold.ttf');
+}

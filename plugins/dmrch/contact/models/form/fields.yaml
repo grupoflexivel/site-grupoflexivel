@@ -1,0 +1,181 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        save_on_db:
+            label: dmrch.contact::lang.form.save_on_db
+            type: switch
+            required: true
+            tab: dmrch.contact::lang.form.geral_tab
+
+        name:
+            label: dmrch.contact::lang.form.name
+            type: text
+            span: left
+            required: true
+            tab: dmrch.contact::lang.form.geral_tab
+
+        code:
+            permissions: dmrch.contact.access_forms_edit
+            label: dmrch.contact::lang.form.code
+            type: text
+            span: right
+            required: true
+            tab: dmrch.contact::lang.form.geral_tab
+            preset:
+                field: name
+                type: slug
+
+        emails:
+            label: dmrch.contact::lang.form.emails
+            type: text
+            tab: dmrch.contact::lang.form.geral_tab
+
+        button_label:
+            permissions: dmrch.contact.access_forms_edit
+            label: dmrch.contact::lang.form.button_label
+            type: text
+            span: left
+            required: true
+            tab: dmrch.contact::lang.form.geral_tab
+
+        button_class:
+            permissions: dmrch.contact.access_forms_edit
+            label: dmrch.contact::lang.form.button_class
+            type: text
+            span: right
+            tab: dmrch.contact::lang.form.geral_tab
+            
+        fields:
+            permissions: dmrch.contact.access_forms_edit
+            label: dmrch.contact::lang.form.fields
+            type: repeater
+            tab: dmrch.contact::lang.form.geral_tab
+            required: true
+            form:
+                fields:
+                    label:
+                        label: dmrch.contact::lang.form.fields_label
+                        type: text
+                        span: left
+
+                    name:
+                        label: dmrch.contact::lang.form.fields_name
+                        type: text
+                        span: right
+
+                    type:
+                        label: dmrch.contact::lang.form.fields_type
+                        type: dropdown
+                        options:
+                            text: Text
+                            number: Number
+                            password: Password
+                            email: Email
+                            textarea: Textarea
+                            file: File
+                            dropdown: Dropdown
+                            checkbox: Checkbox
+                            checkbox_list: Checkbox List
+                            radio_list: Radio List
+                            partial: Partial
+
+                    options:
+                        type: repeater
+                        trigger:
+                            action: show
+                            field: type
+                            condition: value[dropdown],value[checkbox_list],value[radio_list]
+
+                        form:
+                            fields:
+                                label:
+                                    label: dmrch.contact::lang.form.fields_options_label
+                                    type: text
+                                    span: left
+
+                                value:
+                                    label: dmrch.contact::lang.form.fields_options_value
+                                    type: text
+                                    span: right
+
+                    placeholder:
+                        label: dmrch.contact::lang.form.fields_placeholder
+                        type: text
+                        trigger:
+                            action: show
+                            field: type
+                            condition: value[text],value[number],value[password],value[email],value[textarea]
+
+                    partial:
+                        label: dmrch.contact::lang.form.fields_partial
+                        type: text
+                        trigger:
+                            action: show
+                            field: type
+                            condition: value[partial]
+
+                    validation:
+                        label: dmrch.contact::lang.form.fields_validation
+                        type: repeater
+                        form:
+                            fields:
+                                rule:
+                                    label: dmrch.contact::lang.form.fields_validation_rule
+                                    type: text
+                                    span: left
+                                    default: 'required'
+
+                                message:
+                                    label: dmrch.contact::lang.form.fields_validation_message
+                                    type: text
+                                    span: right
+                                    default: dmrch.contact::lang.form.fields_validation_message_default
+
+                    columns:
+                        label: dmrch.contact::lang.form.fields_columns
+                        type: dropdown
+                        span: left
+                        options:
+                            12: 12
+                            11: 11
+                            10: 10
+                            9: 9
+                            8: 8
+                            7: 7
+                            6: 6
+                            5: 5
+                            4: 4
+                            3: 3
+                            2: 2
+                            1: 1
+
+        redirect:
+            label: dmrch.contact::lang.form.redirect
+            type: switch
+            span: left
+            tab: dmrch.contact::lang.form.message_tab
+
+        redirect_to:
+            label: dmrch.contact::lang.form.redirect_to
+            tab: dmrch.contact::lang.form.message_tab
+            trigger:
+                action: show
+                field: redirect
+                condition: checked
+
+        success_message:
+            label: dmrch.contact::lang.form.success_message
+            type: richeditor
+            default: dmrch.contact::lang.form.success_message_default
+            required: true
+            tab: dmrch.contact::lang.form.message_tab
+
+        error_message:
+            label: dmrch.contact::lang.form.error_message
+            type: richeditor
+            default: dmrch.contact::lang.form.error_message_default
+            required: true
+            tab: dmrch.contact::lang.form.message_tab

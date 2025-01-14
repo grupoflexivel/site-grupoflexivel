@@ -1,0 +1,12 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    id:
+        label: dmrch.contact::lang.form.id
+        searchable: true
+
+    name:
+        label: dmrch.contact::lang.form.name
+        searchable: true

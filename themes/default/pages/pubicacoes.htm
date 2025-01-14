@@ -1,0 +1,26 @@
+title = "Publicações"
+url = "/publicacoes/:page?"
+layout = "default"
+id = blog
+
+[blogPosts]
+postsPerPage = "10"
+
+==
+
+<div id="top">
+    
+</div>
+
+<section id="posts">
+    <div class="container">
+        <h1>{{ 'PUBLICAÇÕES'|_ }}</h1>
+
+        {% component 'blogPosts' %}
+    </div>
+</section>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

@@ -1,0 +1,159 @@
+{% if activeLocale == 'en' %}
+	{% set pp = content.politica_qualidade_en %}
+{% elseif activeLocale == 'es' %}
+	{% set pp = content.politica_qualidade_es %}
+{% else %}
+	{% set pp = content.politica_qualidade %}
+{% endif %}
+
+
+<div id="newsletter">
+
+	<div class="container">
+			<h3>NOVIDADES</h3>
+		
+		<div role="main" id="formulario-de-newsletter-para-o-blog-d962183b9488d26ea11c"></div><script type="text/javascript" src="https://d335luupugsy2.cloudfront.net/js/rdstation-forms/stable/rdstation-forms.min.js"></script><script type="text/javascript"> new RDStationForms('formulario-de-newsletter-para-o-blog-d962183b9488d26ea11c', 'UA-247871600-1').createForm();</script>
+	</div>
+
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 mb-3">
+			<img src="{{ 'assets/images/logo-b.png'|theme }}" alt="Grupo Flexível" width="285px" class="mb-3" style="max-width: 74%">
+			<img src="{{ 'assets/images/prata.png'|theme }}" alt="Grupo Flexível" width="100px" class="mb-3" style="max-width: 25%">
+			
+		</div>
+
+		<div class="col-lg-4 mb-3">
+			<h4>{{ 'MATRIZ:'|_ }}</h4>
+			<p>{{ 'Rua Horácio Rubini, 2000 - Barra do Rio Cerro,<br>Jaraguá do Sul - SC - 89260-250'|_ }}</p>
+			<h4>{{ '+55 47 3270-1900'|_ }}</h4>
+			<br>
+			<h4>{{ 'FILIAL:'|_ }}</h4>
+			<p>{{ 'Rua Luiz Albino de Oliveira, 10 - Bairro<br>dos Pessegueiros - Extrema - MG - 37640-000'|_ }}</p>
+			<h4>{{ '+55 35 3544-9864'|_ }}</h4>
+		</div>
+
+		<div class="col-lg-3 mb-3" id="menufooter">
+			<h4>{{ 'NAVEGUE'|_ }}</h4>
+
+			{% partial "layout/menu" %}
+
+
+			<a href="{{ url('contato') }}" class="btn btn-blue">{{ 'TIRE SUAS DÚVIDAS'|_ }}</a>
+			<br><br>
+		</div>
+
+		<!--div class="col-lg-2 col-6">
+			<h4>{{ 'NOVIDADES'|_ }}</h4>
+
+			<p>{{ 'Inscreva-se e receba nossos conteúdos mensalmente.'|_ }}</p>
+			<br>
+			{% component 'newsletter' %}
+		</div-->
+	</div>
+</div>
+
+
+<div id="copyright"> 
+		<div class="container">
+		<div class="row">
+			<div class="col-lg-4 col-12 col-copy">
+				{{ '© 2022 Grupo Flexível.'|_ }}<br>
+				{{ 'Todos direitos reservados.'|_ }}
+			</div>
+			<div class="col-lg-6 col-12 col-terms">
+				<br>
+				<a href="{{ url('politica-de-privacidade') }}" style="color: #ffffff;">{{ 'Política de privacidade'|_ }}</a>
+				{% if content.politica_qualidade %}  |  <a href="{{ pp.getPath() }}" target="_blank" style="color: #ffffff;">{{ 'Política de Qualidade'|_ }}</a>{% endif %}
+			</div>
+			<div class="col-lg-2 col-12 col-social">
+				<br>
+				<div class="social">
+					{% partial "layout/social" %}
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>
+
+
+<style>
+
+	#layout-footer {
+		padding: 0 0 20px 0 !important;
+	}
+
+	#newsletter {
+		background: #66a30b;
+		color: #ffffff;
+		text-align: center;
+		padding: 50px 0 ;
+		margin-bottom: 40px;
+	}
+
+	#formulario-de-newsletter-para-o-blog-d962183b9488d26ea11c {
+		background: transparent !important;
+	}
+
+	.bricks-form__fieldset  {
+		display: flex;
+		flex-flow: unset !important;
+		justify-content: center !important;
+		flex-wrap: wrap !important;
+		gap: 30px;
+	}
+
+	.bricks-form__field {
+		width: 270px !important;
+		max-width: 100% !important;
+		
+	}
+
+	.bricks-form__terms {
+		display: block !important;
+		width: 100% !important;
+	}
+
+	#rd-section-lpcvu5nx, 
+	#rd-column-lpcvu5o3 > div,
+	#rd-column-lpcvu5nz > div {
+		background: transparent !important;
+	}
+
+	#newsletter h3,
+	#rd-form-lpcvu5o4 .bricks-form__label,
+	#rd-form-lpcvu5o4 .bricks-form__static,
+	#rd-text-lpcvu5o0 > h4 > strong {
+		color: #ffffff !important;
+	}
+
+	#rd-button-lpcvu5o7 {
+		background-color: #003d3d;
+		border-color: #003d3d;
+	}
+
+	.bricks--component.bricks--component-button.rd-button {
+		width: auto !important;
+		min-width: unset !important;
+	}
+
+	#rdstation-bricks-embeddable-form-bricks-component-G-P7VpvaRNT4u2SgCY9OAg .bricks--column > div {
+		display: block !important;
+	}
+
+	#rd-row-lpcvu5o2,
+	#rd-row-lpcvu5o2 .bricks--column > div {
+		min-height: unset !important;
+	}
+	
+	#menufooter ul a {
+		color: #ffffff;
+	}
+
+	#layout-footer .social a {
+		color: #003d3d !important;
+		background: #ffffff;
+	}
+</style>

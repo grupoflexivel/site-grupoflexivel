@@ -1,0 +1,48 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    status:
+        label: Status
+        span: left
+        type: switch
+        default: 1
+
+    title:
+        label: Titulo
+        type: text
+        span: left
+
+    slug:
+        label: Slug
+        type: text
+        span: right
+        preset:
+            field: title
+            type: slug
+
+    link:
+        label: Link Externo
+        type: text
+
+    file:
+        label: Arquivo
+        type: fileupload
+        mode: file
+
+    thumb:
+        label: Thumb
+        type: fileupload
+        mode: image
+        span: left
+
+    banner:
+        label: Banner
+        type: fileupload
+        mode: image
+        span: right
+
+    text_1:
+        label: Texto
+        type: richeditor

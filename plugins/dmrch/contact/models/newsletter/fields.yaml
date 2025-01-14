@@ -1,0 +1,20 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: dmrch.contact::lang.newsletter.name
+        type: text
+        disabled: true
+
+    email:
+        label: dmrch.contact::lang.newsletter.email
+        type: text
+        disabled: true
+
+    created_at:
+        label: dmrch.contact::lang.newsletter.created_at
+        type: text
+        format: d/m/Y H:i:s
+        disabled: true

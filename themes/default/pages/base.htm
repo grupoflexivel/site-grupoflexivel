@@ -1,0 +1,33 @@
+title = "Quem Somos"
+url = "/quem-somos"
+layout = "default"
+id = quem-somos
+
+[institucional]
+
+==
+<?php
+function onStart(){
+
+}
+?>
+==
+<section id="page-header">
+	<div class="container">
+		<div class="h1before"></div>
+		<h1 class="">Quem Somos</h1>	
+	</div>
+</section>
+
+{% set conteudo = institucional.getAll() %}
+<section id="empresa">
+	<div class="container">
+		{{ conteudo.empresa|raw }}
+	</div>
+</section>
+
+
+{% put styles %}
+	<link href="{{ ['assets/css/page.content.min.css']|theme }}" rel="stylesheet">
+{% endput %}
+

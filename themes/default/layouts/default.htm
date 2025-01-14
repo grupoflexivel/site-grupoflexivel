@@ -1,0 +1,164 @@
+description = "Default layout"
+
+[localePicker]
+[newsletter]
+[forms]
+[texts]
+[lgpd]
+
+==
+<?
+function onStart(){ 
+    $this['content'] = $this->texts->getAll();
+}
+?>
+==
+
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>Flexível | {{ this.page.title }}</title>
+        <meta name="description" content="{{ this.page.meta_description }}" />
+        <meta name="title" content="{{ this.page.meta_title }}" />
+        <meta name="keywords" content="{{ this.page.meta_key }}" />
+        <meta name="author" content="Fonix" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="pinterest" content="nopin" />
+        <meta name="facebook-domain-verification" content="lc5w9d3colzx4kpnnx66npj3kcuag5" />
+
+        {% placeholder head %}
+
+        <style>
+
+            #lacalepicker select {
+                background: transparent; 
+                font-size: 12px; 
+                text-transform: uppercase; 
+                border: none; 
+                margin: 16px 15px 0 9px;
+                position: relative;
+            }
+
+        </style>
+        
+        <link rel="icon" type="image/x-icon" href="{{ 'assets/images/favicon.png'|theme }}" />
+        {% styles %}
+        <link href="{{ [         
+            'assets/css/bootstrap.css',
+            'assets/css/main.css',
+            'assets/fonts/fontawesome/css/all.min.css',
+            'bower_components/tiny-slider/dist/tiny-slider.css'
+        ]|theme }}" rel="stylesheet" />
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-KRMCZKX');</script>
+        <!-- End Google Tag Manager --> 
+    </head>
+    <body>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-D2EG0G6W35"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-D2EG0G6W35');
+</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-247871600-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-247871600-1');
+</script>
+
+
+
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRMCZKX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Header -->
+        <header id="layout-header" class="fixed">
+            {% partial "layout/header" %}
+        </header>
+
+        <!-- Content -->
+        <main id="layout-content">
+            {% page %}
+        </main>
+
+        <!-- Footer -->
+        <footer id="layout-footer" style="background:#003d3d; color: #fff;">
+            {% partial "layout/footer" %}
+        </footer>
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'bower_components/jquery/dist/jquery.js',
+            'bower_components/bootstrap/dist/js/bootstrap.bundle.min.js',
+            'bower_components/tiny-slider/dist/min/tiny-slider.js'
+        ]|theme }}">
+        </script>
+        
+        <script>                    
+            $('body').click(function (e) {
+                var container = $("#mmenu");
+                var containers = $("#submenu");           
+  
+                if (e.target.className != 'fas fa-bars') {
+                    if (!container.is(e.target) && container.has(e.target).length === 0) {
+                        container.hide('fast');
+                    }
+                }
+
+                if (e.target.className != 'hassubmenu') {
+                    if (!containers.is(e.target) && containers.has(e.target).length === 0) {
+                        containers.hide('fast');
+                    }
+                }
+            }); 
+
+           /* $(window).scroll(function() {        
+                checkScroll();
+            });
+
+            $(document).ready(function() {
+                checkScroll();
+            });
+
+            /*function checkScroll() {
+                console.log($(window).scrollTop());
+
+                if ($(window).scrollTop() > 50){ 
+                    $('#layout-header').addClass('fixed');
+                }
+                if ($(window).scrollTop() < 50){
+                    $('#layout-header').removeClass('fixed');
+                } 
+            }*/
+        </script>
+           
+        {% framework extras %}
+
+        {% scripts %}
+
+        {% placeholder footer %}
+        
+        {% component 'lgpd' %}
+
+        <script type="text/javascript" async src="https://d335luupugsy2.cloudfront.net/js/loader-scripts/cc53c070-031f-4d0a-9996-a978bc38655f-loader.js" ></script>
+    </body>
+</html>

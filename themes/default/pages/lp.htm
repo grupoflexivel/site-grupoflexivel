@@ -1,0 +1,283 @@
+title = "Page"
+url = "/lp/:slug"
+layout = "default"
+id = page
+
+[lps]
+
+==
+<?php
+function onStart(){
+	$this['pg'] = $this->lps->getBySlug($this->param('slug'));
+	$this['postss'] = $this->lps->getPostsByCAtagori($this['pg']->blog, 10);
+}
+?>
+==
+
+<section id="lps">	
+
+<section id="video-1" class="video" style="background: url('{{ pg.bg_0.getPath() }}') top center no-repeat; background-size: cover;">
+	{% if pg.video_1 %}
+		<video src="{{ pg.video_1.getPath() }}" autoplay loop muted controls="false"></video>
+	{% endif %}
+	<div class="overlay"></div>
+	<div class="text"><h1>{{ pg.name }}</h1></div>
+</section>
+
+<section id="lp-content" style="background: url('{{ pg.bg_1.getPath() }}') top center no-repeat; background-size: cover;">
+
+	<div class="block"  id="lp-block-1">
+			<div class="row p-0 m-0">
+			<div class="col-lg-6">
+				<div class="text" style="max-width: 550px; margin-left: auto;">{{ pg.text_1|raw }}</div>
+			</div>
+
+			<div class="col-lg-6 p-0 img img1">
+				<img src="{{ pg.img_1.getPath() }}" style="max-width: 100%;">
+			</div>		
+		</div>
+	</div>
+
+	<div class="container">
+		<div id="carrousel-container">
+			<div id="gallery">
+				{% for g in pg.gallery %}
+					<div class="item" style="padding: 10px;">
+						<img src="{{ g.getThumb(200,200,'crop') }}" alt="{{ g.title }}">
+
+						<p>{{ g.title|raw }}</p>
+					</div>
+				{% endfor %}
+			</div>	
+		</div>
+	</div>
+
+	<div class="block"  id="lp-block-2">
+		<div class="row p-0 m-0">
+			<div class="col-lg-6 p-0 img img2">
+				<img src="{{ pg.img_2.getPath() }}" style="max-width: 100%;">
+			</div>		
+
+			<div class="col-lg-6">
+				<div class="text" style="max-width: 550px;">{{ pg.text_2|raw }}</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="block"  id="lp-block-3" style="background: url('{{ pg.bg_2.getPath() }}') top center no-repeat; background-size: cover;">
+	<div class="container">
+		<div class="text">
+			{{ pg.text_3|raw }}		
+		</div>
+	</div>
+</section>
+
+
+<section class="block"  id="lp-block-4" style="background: url('{{ pg.bg_3.getPath() }}') top center no-repeat; background-size: cover;">
+	<div class="container">
+		<div class="text">
+			{{ pg.text_4|raw }}		
+
+
+			{% if pg.products %}
+				<div id="tecnologias">
+				<ul class="list">
+					{% for lin in pg.products %}
+						<li style="width: 360px">
+
+							<div class="item">
+								<a class="lin-li" href="javascript::void()" onclick="
+									if ($(this).hasClass('active')) {
+										$(this).removeClass('active');
+										$(this).next('.lin-text').hide('fast');
+									} else {
+										$('.lin-li.active').removeClass('active');
+										$(this).addClass('active');
+										$('.lin-text').hide('fast');
+										$('#lin-{{loop.index}}').show('fast');
+									}">
+
+									<img src="{{ url('storage/app/media/'~lin.logo) }}" alt="{{ lin.name }}" height="37px"> <i class="fa-solid fa-angle-down"></i>
+								</a>
+
+								<div class="text lin-text" id="lin-{{loop.index}}" >
+									{{ lin.desc|raw }}
+								</div>
+							</div>
+
+						</li>
+
+
+					{% endfor %}
+				</ul>
+				</div>
+			{% endif %}
+		</div>
+	</div>
+</section>
+
+<section id="video-2" class="video" style="background: url('{{ pg.bg_6.getPath() }}') top center no-repeat; background-size: cover;">
+	<div class="container" style="display: flex; place-items: center; justify-content: center;">
+		<iframe width="738" height="415" src="https://www.youtube.com/embed/{{ pg.video_3|replace({'https://www.youtube.com/watch?v=':''}) }}" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+	</div>
+</section>
+
+<section class="block"  id="lp-block-5" style="background: url('{{ pg.bg_4.getPath() }}') top center no-repeat; background-size: cover;">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5">
+				{{ pg.text_5|raw }}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="contato">
+	<div class="row p-0 m-0">
+
+		<div class="col-lg-5" style="background: url('{{ pg.bg_5.getPath() }}') top center no-repeat; background-size: cover;"></div>
+
+		<div class="col-lg-7" style="background: #93d500;">
+
+			<div class="text">
+
+
+				{{ pg.text_6|raw }}
+
+				<br>
+
+				{% component 'forms' code='servicos'  %}
+
+			</div>		
+		</div>
+	</div>
+</section>
+
+
+<section id="blog">
+	<div class="container">
+		<h1>{{ 'Blog'|_ }}</h1>
+
+		<div class="crraousel-block">
+
+			<div id="bog-carouseel">
+				{% for post in postss %}
+		       
+		            <div class="post">
+
+	                	{% if post.featured_images|length > 0 %}
+
+		                    <div class="img">                           
+		                        <a href="{{ url('post/'~post.slug) }}"><img src="{{ post.featured_images.0.getThumb(300,280,'crop') }}" alt="{{ post.title }}"></a>
+		                    </div>
+
+		                {% endif %}
+
+		                <br>
+
+		                <div class="text">  
+		                    <a href="{{ url('post/'~post.slug) }}"><h3>{{ post.title }}</h3></a>
+		                </div>
+		            </div>  
+		        
+		    	{% endfor %}
+		    </div>
+		</div>
+	</div>
+</section>
+
+<section id="more" class="block">
+	<div class="container">
+		<div class="text">
+			<h1 style="font-size:35px; line-height: 40px; margin-bottom: 15px">{{ 'Saiba mais sobre outros segmentos'|_ }}</h1>	
+
+			<p><a href="{{ url('/') }}#segmentos">{{ 'saiba mais'|_ }}</a></p>
+
+		</div>
+	</div>
+</section>
+
+</section>
+
+{% put styles %}
+	<link href="{{ ['assets/css/page.pages.css']|theme }}" rel="stylesheet">
+
+	<style type="text/css">
+		{{ pg.custom_css }}		
+	</style>
+{% endput %}
+
+{% put scripts %}
+	<script>
+		var slider = tns({
+		    container: '#gallery',
+		    mode: "carousel",
+		    items: 1,    		
+    		speed: 1000,
+    		loop: true,
+    		autoplayHoverPause: false,
+    		autoplayButtonOutput: false,
+    		center: true,
+    		autoplayTimeout: 6000,
+    		autoplay: true,
+    		controls: true,
+    		nav: false,
+    		controlsPosition: 'bottom',
+    		navPosition: 'bottom',
+    		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>'],
+			mouseDrag: true,
+			responsive: {
+		      740: {
+		        items: 1,
+		        center: true,
+		      },
+		      900: {
+		        items: 3,
+		        center: true,
+		      },
+		      1200: {
+		        items: 5,
+		        center: false,
+		      },
+		   	},
+		});
+
+
+		var slider = tns({
+		    container: '#bog-carouseel',
+		    mode: "carousel",
+		    items: 1,    		
+    		speed: 1000,
+    		loop: true,
+    		autoplayHoverPause: false,
+    		autoplayButtonOutput: false,
+    		center: true,
+    		autoplayTimeout: 6000,
+    		autoplay: true,
+    		controls: true,
+    		nav: false,
+    		controlsPosition: 'bottom',
+    		navPosition: 'bottom',
+    		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>'],
+			mouseDrag: true,
+			responsive: {
+		      740: {
+		        items: 1,
+		        center: true,
+		      },
+		      900: {
+		        items: 2,
+		        center: true,
+		      },
+		      1200: {
+		        items: 3,
+		        center: false,
+		      },
+		   	},
+		});
+	</script>
+{% endput %}
+
+
+

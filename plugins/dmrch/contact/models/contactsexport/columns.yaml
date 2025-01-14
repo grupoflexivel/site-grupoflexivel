@@ -1,0 +1,8 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+columns:
+    form: dmrch.contact::lang.contacts.form
+    email: dmrch.contact::lang.contacts.email
+    message: dmrch.contact::lang.contacts.message
+    created_at: dmrch.contact::lang.contacts.created_at

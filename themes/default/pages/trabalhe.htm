@@ -1,0 +1,63 @@
+title = "Trabalhe conosco"
+url = "/trabalheconosco"
+layout = "default"
+id = trabalhe-conosco
+
+[banners]
+
+==
+<?php
+function onStart(){
+
+	header('Location: https://flexivelindustriaecomercioltda.pandape.infojobs.com.br/?_ga=2.178916580.150795642.1711626005-802076396.1708351220');
+	exit();
+
+    $this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<div id="contato">	
+	<div class="container">
+
+
+		<div class="row justify-content-center">
+			<div class="col-lg-8">				
+
+				<h1>{{ 'TRABALHE CONOSCO'|_ }}</h1>
+
+				<p>{{ 'Quando falamos em qualidade de vida e bem estar, vamos muito além do bom ambiente de trabalho, por isso expandimos nossos benefícios aos colaboradores e suas famílias. Veja nossos diferenciais:'|_ }}</p>
+
+				<ul>
+					<li>{{ 'Seguro de Vida'|_ }}</li>
+					<li>{{ 'Plano de Saúde'|_ }}</li>
+					<li>{{ 'Plano Odontológico'|_ }}</li>
+					<li>{{ 'Ginástica Laboral'|_ }}</li>
+					<li>{{ 'Prêmio Assiduidade'|_ }}</li>
+					<li>{{ 'Convênio com farmácia'|_ }}</li>
+					<li>{{ 'Refeitório Próprio'|_ }}</li>
+					<li>{{ 'Espaço Relax'|_ }}</li>
+					<li>{{ 'Estacionamento Próprio'|_ }}</li>
+					<li>{{ 'Bolsa de Estudo'|_ }}</li>
+					<li>{{ 'Brindes em datas comemorativas'|_ }}</li>
+				</ul>
+
+				<br><br>
+
+
+				{% component 'forms' code='trabalhe' %}
+			</div>
+		</div>
+	
+		
+
+
+	</div>
+</div>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

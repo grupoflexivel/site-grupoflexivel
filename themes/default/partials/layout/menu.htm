@@ -1,0 +1,26 @@
+{% if activeLocale == 'en' %}
+	{% set pp = content.politica_qualidade_en %}
+{% elseif activeLocale == 'es' %}
+	{% set pp = content.politica_qualidade_es %}
+{% else %}
+	{% set pp = content.politica_qualidade %}
+{% endif %}
+
+<ul class="special">
+	<li style="display: none;" class="mobileonly"><a href="{{ url('/') }}" onclick="$('#mmenu').hide();">{{ 'Home'|_ }}</a></li>	
+	<li><a href="{% if this.page.id != 'home' %}{{ url('/') }}{% endif %}#sobre" onclick="$('#mmenu').hide();">{{ 'Sobre'|_ }}</a></li>	
+	<li><a href="https://grupoflexivel.com.br/sustentabilidade/" target="_blank">{{ 'Sustentabilidade'|_ }}</a>
+	<li><a href="{% if this.page.id != 'home' %}{{ url('/') }}{% endif %}#segmentos" onclick="$('#mmenu').hide();">{{ 'Segmentos'|_ }}</a></li>	
+	<li><a href="{% if this.page.id != 'home' %}{{ url('/') }}{% endif %}#tecnologia" onclick="$('#mmenu').hide();">{{ 'Tecnologia'|_ }}</a></li>
+	{% if content.politica_qualidade %}
+		<li><a href="{{ pp.getPath() }}" onclick="$('#mmenu').hide();" target="_blank">{{ 'Política de Qualidade'|_ }}</a></li>	
+	{% endif %}
+	<li><a href="{{ url('blog') }}">{{ 'Blog'|_ }}</a></li>
+	<li><a href="{{ url('conteudos') }}">{{ 'Conteúdos'|_ }}</a></li>
+	<li><span onclick="$('#submenu').slideToggle('fast')" class="hassubmenu">{{ 'Contato'|_ }}</span>
+		<ul id="submenu" class="dropdown-menu">
+			<li><a href="{{ url('contato') }}">{{ 'Fale Conosco'|_ }}</a></li>
+			<li><a href="https://flexivelindustriaecomercioltda.pandape.infojobs.com.br/?_ga=2.178916580.150795642.1711626005-802076396.1708351220" target="_blank">{{ 'Trabalhe Conosco'|_ }}</a></li>
+		</ul>
+	</li>
+</ul>

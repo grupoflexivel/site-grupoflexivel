@@ -1,0 +1,70 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+tabs:
+    fields:
+        text_1:
+            label: Sobre
+            type: richeditor
+
+        text_2:
+            type: richeditor
+
+        text_3:
+            type: repeater
+            form:
+                fields:
+                    logo:
+                        label: Image
+                        type: mediafinder
+
+                    link:
+                        label: link
+                        type: text
+
+        missao:
+            label: Missão
+            type: textarea
+
+        visao:
+            label: Visão
+            type: textarea
+
+        valores:
+            label: Valores
+            type: textarea
+
+        galeria:
+            label: O que fazemos
+            type: fileupload
+            mode: image
+            required: true
+
+        linha_tempo:
+            tab: Linha do tempo
+            type: repeater
+            form:
+                fields:
+                    ano:
+                        label: Ano
+                        type: text
+
+                    texto:
+                        label: Texto
+                        type: textarea
+
+        politica_qualidade:
+            label: Política de Qualidade (PT)
+            type: fileupload
+            mode: file
+
+        politica_qualidade_en:
+            label: Política de Qualidade (EN)
+            type: fileupload
+            mode: file
+
+        politica_qualidade_es:
+            label: Política de Qualidade (ES)
+            type: fileupload
+            mode: file

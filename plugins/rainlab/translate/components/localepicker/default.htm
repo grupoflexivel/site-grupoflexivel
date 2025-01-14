@@ -1,0 +1,10 @@
+{{ form_open() }}
+    <div id="lacalepicker">
+        <select name="locale" data-request="onSwitchLocale">
+            {% for code, name in locales %}
+                <option value="{{ code }}" {{ code == activeLocale ? 'selected' }}>{{ code }}</option>
+            {% endfor %}
+        </select>
+    </div>
+{{ form_close() }}
+

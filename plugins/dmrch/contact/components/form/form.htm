@@ -1,0 +1,107 @@
+{% if forms.property('code') %}
+	{% set code = forms.property('code') %}
+{% else %}
+	{% set code = post('form_code') %}
+{% endif %}
+
+{% set form = forms.getForm(code) %}
+
+{{ form_ajax('forms::onSubmit', { update: { 'forms::form': '#form-container-'~code }, enctype: 'multipart/form-data', files: true }) }}
+
+<input type="hidden" name="form_name" id="form_name" value="{{ form.name }}">
+<input type="hidden" name="form_code" id="form_code" value="{{ form.code }}">
+
+<div class="row">
+	
+	{% for field in form.fields %}
+
+		<div class="col-lg-{{ field.columns }} col-12 mb-3">	
+
+			{% if field.type == 'text' or field.type == 'email' or field.type == 'number' or field.type == 'password' or field.type == 'file' %}
+				{% if field.label %}
+					<label for="{{ field.name }}">{{ field.label|_ }}</label>
+				{% endif %}
+				<input type="{{ field.type }}" name="{{ field.name }}" id="{{ field.name }}" placeholder="{{ field.placeholder|_ }}" class="form-control {% if forms.errors.first(field.name) %}is-invalid{% endif %}" value="{% if forms.success == false %}{{ post(field.name)|striptags }}{% endif %}" {% if field.type == 'file' %}accept=".doc,.docx,.pdf"{% endif %}>
+				{% if field.type == 'file' %}<span style="font-size: 10px; color: #666;">{{ 'Formatos: DOC, DOCX e PDF.'|_}}</span>{% endif %}
+				<span class="invalid-feedback">{{ forms.errors.first(field.name)|_ }}</span>
+			{% endif %}
+
+			{% if field.type == 'textarea' %}
+				{% if field.label %}
+					<label for="{{ field.name }}">{{ field.label|_ }}</label>
+				{% endif %}
+				<textarea name="{{ field.name }}" id="{{ field.name }}" placeholder="{{ field.placeholder|_ }}" class="form-control {% if forms.errors.first(field.name) %}is-invalid{% endif %}">{% if forms.success == false %}{{ post(field.name)|striptags }}{% endif %}</textarea>
+				<span class="invalid-feedback">{{ forms.errors.first(field.name)|_ }}</span>
+			{% endif %}
+
+			{% if field.type == 'dropdown' %}
+				{% if field.label %}
+					<label for="{{ field.name }}">{{ field.label|_ }}</label>
+				{% endif %}
+				<select name="{{ field.name }}" id="{{ field.name }}" class="form-control {% if forms.errors.first(field.name) %}is-invalid{% endif %}">
+					{% for option in field.options %}
+						<option value="{{ option.value }}">{{ option.label|_ }}</option>
+					{% endfor %}
+				</select>
+				<span class="invalid-feedback">{{ forms.errors.first(field.name)|_ }}</span>
+			{% endif %}
+
+			{% if field.type == 'radio_list' or field.type == 'checkbox_list' %}
+				{% if field.label %}
+					<label for="{{ field.name }}">{{ field.label|_ }}</label>
+				{% endif %}
+				
+				{% for option in field.options %}
+					<input type="{{ field.type|replace({ '_list':'' }) }}" name="{{ field.name }}[]" id="{{ field.name }}-{{ loop.index }}" class="{% if forms.errors.first(field.name) %}is-invalid{% endif %}" value="{{ option.value }}">
+					<label for="{{ field.name }}-{{ loop.index }}">{{ option.label|_ }}</label>			
+				{% endfor %}
+
+				<span class="invalid-feedback">{{ forms.errors.first(field.name)|_ }}</span>
+			{% endif %}
+
+			{% if field.type == 'checkbox' %}				
+				<input type="checkbox" name="{{ field.name }}" id="{{ field.name }}" class="{% if forms.errors.first(field.name) %}is-invalid{% endif %}" value="{{ field.value }}">
+				{% if field.label %}
+					<label for="{{ field.name }}">{{ field.label|_ }}</label>
+				{% endif %}			
+				<span class="invalid-feedback">{{ forms.errors.first(field.name)|_ }}</span>
+			{% endif %}
+
+			{% if field.type == 'partial' %}
+				{% partial field.partial %}
+			{% endif %}
+
+		</div>
+
+	{% endfor %}
+
+	<div class="col-lg-12 col-12">		
+
+		{% if forms.getConfig('site_key') and forms.getConfig('secret_key') %}
+			<div class="g-recaptcha" data-sitekey="{{ forms.getConfig('site_key') }}"></div>
+			<span class="invalid-feedback">{{ forms.errors.first('g-recaptcha-response') }}</span>
+		{% endif %}
+
+		<button type="submit" class="{{ form.button_class }}" onclick="$(this).hide();$(this).next('button').show();">{{ form.button_label|_ }}</button>
+		{# SECOND BUTTOM TO PREVENTE MULTILE SUBMITS, CHECK FOR OTHER SOLUTIONS LATER #}
+		<button type="button" class="{{ form.button_class }}" style="display: none;" disabled="disabled">{{ form.button_label|_ }}</button>
+	</div>
+</div>
+
+{{ form_close() }}
+
+<br>
+
+<div class="row">
+	<div class="col-lg-12 col-12">
+		{% if forms.success %}
+			<div class="alert alert-success">
+				{{ form.success_message|raw }}
+			</div>
+		{% elseif forms.errors|length > 0 %}
+			<div class="alert alert-danger">
+				{{ form.error_message|raw }}
+			</div>
+		{% endif %}
+	</div>
+</div>

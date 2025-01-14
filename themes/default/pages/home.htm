@@ -1,0 +1,664 @@
+title = "Home"
+url = "/"
+layout = "default"
+is_hidden = 0
+
+[banners]
+group_id = 1
+controls = "true"
+nav = "true"
+
+[texts]
+
+[categories]
+==
+<?php
+function onStart(){
+	
+}
+?>
+==
+<section id="main-banner">
+	{% component 'banners' group_id='1' controls='false' nav='false' %}
+</section>
+
+<section id="info">
+	<div class="container">
+		<div class="carousel-container">
+			<div id="info-carousel">
+				<div class="itemc">
+				<div class="item item-1">
+					<div class="bgimage"></div>
+
+					<h2>{{ 'POLIURETANO<br><span>SEGMENTOS</span>'|_ }}</h2>
+
+					<p>{{ 'O Poliuretano é uma solução tão versátil que atende a um grande número de segmentos! Sua capacidade de adaptação e propriedades garantem diversos benefícios para diferentes mercados.'|_ }}</p>
+
+					<p class="link"><a href="#segmentos" class="btn btn-green">{{ 'SAIBA MAIS'|_ }}</a></p>
+				</div>
+				</div>
+
+				<div class="itemc">
+				<div class="item item-2">
+					<div class="bgimage"></div>
+
+					<h2><img src="{{ 'assets/images/logo-b.png'|theme }}" alt="Grupo Flexível" width="190px"></h2>
+
+					<p>{{ 'A empresa como um todo se preocupa avidamente com a qualidade e a personalização de produtos, assim como a satisfação de nossos clientes com seu processo produtivo.'|_ }} {{ 'São mais de 20 anos de desenvolvimento e aperfeiçoamento de tecnologias.'|_ }}</p>
+
+					<p class="link"><a href="#sobre" class="btn btn-blue">{{ 'SAIBA MAIS'|_ }}</a></p>
+				</div>
+				</div>
+
+				<div class="itemc">
+				<div class="item item-3">
+					<div class="bgimage"></div>
+
+					<h2>{{ 'POLIURETANO<br><span>TECNOLOGIAS</span>'|_ }}</h2>
+
+					<p>{{ 'Desenvolvemos tecnologias em poliuretano para diferentes funcionalidades, baseadas em incansáveis pesquisas e acompanhamento de mercado.'|_ }} {{ 'Nosso objetivo é oferecer inovação e excelência nas soluções. Conheça nossas linhas de produtos.'|_ }}</p>
+
+					<p class="link"><a href="#tecnologia" class="btn btn-blue">{{ 'SAIBA MAIS'|_ }}</a></p>
+				</div>
+				</div>
+			</div>
+		</div>
+		<br><br><br>
+
+		<!--div class="row justify-content-center">
+			<div class="col-10">
+				<div class="ratio ratio-16x9">
+					<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/NpEaa2P7qZI" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div-->
+	</div>
+
+	<!--div class="detail1"></div>
+	<div class="detail2"></div-->
+</section>
+
+<section id="sobre-section">
+	<div id="sobre">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6">
+					<h2>{{ 'Grupo Flexível'|_ }}</h2>
+					<p class="sub-title">{{ 'Soluções sob medida para<br>marcas inovadoras.'|_ }}</p>
+				</div>
+				<div class="col-lg-6">
+					<div class="text">
+						{{ content.text_1|raw }}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="detail"></div>
+	</div>
+
+	<div id="linha-do-tempo">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2">
+					<h3>{{ 'Linha do tempo'|_ }}</h3>
+				</div>
+
+				<div class="col-lg-10">
+					<div class="linha-container">
+						<div id="carousel-linha">
+							{% for item in content.linha_tempo %}
+								<div class="item {% if loop.index == 1 %}active{% endif %}">
+									<p class="ano">{{ item.ano }}</p>
+									<div class="balbox"><div class="bal"></div></div>
+									<p class="texto">{{ item.texto }}</p>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--div id="sustentavel">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 offset-lg-6">
+					<div class="text">
+						{{ content.text_2|raw }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div-->
+
+
+
+	<div id="missao-visao-valores">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-3 col-md-3 col-4 pb-3">
+					<div class="item">
+					<img src="{{ 'assets/images/visao.png'|theme }}" height="60px">
+					<h3>{{ 'VISÃO'|_ }}</h3>
+					<p>{{ content.visao|nl2br }}</p>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-4 pb-3">
+					<div class="item">
+
+					<img src="{{ 'assets/images/missao.png'|theme }}" height="60px">
+					<h3>{{ 'MISSÃO'|_ }}</h3>
+					<p>{{ content.missao|nl2br }}</p>
+					</div>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-4 pb-3">
+					<div class="item">
+					<img src="{{ 'assets/images/valores.png'|theme }}" height="60px">
+					<h3>{{ 'VALORES'|_ }}</h3>
+					<p>{{ content.valores|nl2br }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="o-que-fazemos">
+		<h2>{{ 'O QUE FAZEMOS'|_ }}</h2>
+
+		<div class="box">
+			<div class="bar"></div>
+
+			<p class="sub-title">{{ 'Como grupo, desenvolvemos soluções para o mercado de poliuretano, adesivos, selantes e impermeabilizantes.'|_}} {{ 'Atuamos diretamente na distribuição de químicos industriais para suprimento do mercado, oferecendo suporte técnico aos clientes.'|_ }}</p>
+
+			<div class="galeria" id=carousel-galeria>
+
+				{% for img in content.galeria %}
+				<img src="{{ img.getThumb(700,470,'crop') }}" >
+				{% endfor %}
+
+			</div>
+
+			<div class="detail"></div>
+
+	</div>
+	</div>
+
+	<div id="diferenciais">
+		<div class="bar"></div>
+
+		<div class="container">
+			<h2>{{ 'DIFERENCIAIS'|_ }}</h2>
+
+			<div class="row justify-content-center">
+
+				{% set diferencial = categories.getBySlug('diferenciais') %}
+
+				{% for dif in diferencial.products  %}
+					<div class="col-4">
+						<div class="item">
+
+							<img src="{{ dif.thumb.getThumb(605,505,'crop') }}" alt="{{ dif.name }}">
+							<h3>{{ dif.name }}</h3>
+							<div class="text">
+								{{ dif.description|raw }}
+							</div>
+
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+	<div id="o-que-fazemos-list">
+		<div class="bar"></div>
+		<div class="container">
+			<div class="row justify-content-center">
+
+				{% set oqfazemos = categories.getBySlug('o-que-fazemos') %}
+
+				{% for oqf in oqfazemos.products  %}
+					<div class="col-4">
+						<div class="item">
+
+							<img src="{{ oqf.thumb.getThumb(605,505,'crop') }}" alt="{{ oqf.name }}">
+							<h3>{{ oqf.name }}</h3>
+							<div class="text">
+								{{ oqf.description|raw }}
+							</div>
+
+						</div>
+					</div>
+				{% endfor %}
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="solucoes">
+		{% component 'banners' group_id='2' controls='false' nav='false' %}
+
+
+		<!--div class="container">
+
+			<div class="text">
+
+				<p>Nossas soluções atendem diversos setores: automotivo, moveleiro, calçadista, construção civil, cadeia do frio, industrial, esportivo, academia, mineração, confecção, hospitalar, náutico.</p>
+
+			</div>
+
+		</div-->
+
+	</div>
+
+
+
+
+
+</section>
+
+
+
+<section id="segmentos">
+
+	<div class="container">
+
+
+
+		<div class="row">
+
+			<div class="col-lg-9 offset-lg-3 col-8 offset-4">
+
+				<h2>{{ 'Segmentos'|_ }}</h2>
+
+				<p class="sub-title"></p>{{ 'O Grupo Flexível é especialista em tecnologias de poliuretano sob medidas para marcas inovadoras.'|_ }} {{ 'Utilizamos as mais avançadas tecnologias e conhecimento da área para desenvolver soluções eficientes.'|_ }}<br><br>
+
+				{{ 'Escolha o segmento desejado e conheça nossas tecnologias:'|_ }}</p>
+
+			</div>
+
+
+
+		</div>
+
+
+
+	</div>
+
+
+
+	<div class="list">
+
+		<div class="container">
+
+
+
+			<div class="row block">
+
+
+
+				<div class="col-lg-3 col-4 listlinks">
+
+					<ul>
+
+						{% set segmento = categories.getBySlug('segmentos') %}
+
+
+
+						{% for seg in segmento.products  %}
+
+
+
+							{% if seg.status == 1 %}
+
+							<li class="seg-li {% if loop.first %}active{% endif %}" onclick="
+
+								$('.seg-li').removeClass('active');
+
+								$(this).addClass('active');
+
+								$('#segmentos .content .text').hide();
+
+								$('#text-{{loop.index}}').slideDown('fast');
+
+
+
+							">{{ seg.name }}</li>
+
+							{% endif %}
+
+						{% endfor %}
+
+
+
+					</ul>
+
+				</div>
+
+
+
+				<div class="col-lg-9 col-8">
+
+					<div class="content">
+
+						{% for seg in segmento.products  %}
+
+						{%  if seg.status == 1 %}
+
+							<div class="text {% if loop.first %}active{% endif %}" id="text-{{loop.index}}" >
+
+								{% if seg.thumb %}
+
+										<img src="{{ seg.thumb.getPath() }}" height="100px">
+
+								{% endif %}
+
+
+
+								{{ seg.description|raw }}
+
+
+
+								{% if seg.link %}
+
+
+
+									<br>
+
+									<a href="{{ seg.link }}" class="btn btn-green">{{ 'SAIBA MAIS'|_ }}</a>
+
+
+
+								{% endif %}
+
+							</div>
+
+
+
+							{% endif %}
+
+						{% endfor %}
+
+					</div>
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+		<div class="detail"></div>
+
+	</div>
+
+</section>
+
+
+
+<section id="tecnologia">
+
+	<div class="container">
+
+		<h2>{{ 'Linhas de tecnologia'|_ }}</h2>
+
+
+
+		{% set linhas = categories.getBySlug('linhas-de-tecnologia') %}
+
+
+
+		<ul class="list">
+
+		{% for lin in linhas.products %}
+
+
+
+
+
+
+
+			<li style="width: 360px">
+
+
+
+				<div class="item">
+
+					<a class="lin-li" href="javascript::void()" onclick="
+
+						if ($(this).hasClass('active')) {
+
+							$(this).removeClass('active');
+
+							$(this).next('.lin-text').hide('fast');
+
+						} else {
+
+							$('.lin-li.active').removeClass('active');
+
+							$(this).addClass('active');
+
+							$('.lin-text').hide('fast');
+
+							$('#lin-{{loop.index}}').show('fast');
+
+						}">
+
+
+
+						<img src="{{ lin.thumb.getPath() }}" alt="{{ lin.name }}" height="37px"> <i class="fa-solid fa-angle-down"></i>
+
+					</a>
+
+
+
+					<div class="text lin-text" id="lin-{{loop.index}}" >
+
+						{{ lin.description|raw }}
+
+					</div>
+
+				</div>
+
+
+
+			</li>
+
+
+
+
+
+		{% endfor %}
+
+		</ul>
+
+	</div>
+
+</section>
+
+
+<div id="sustentavel2">
+		<div class="row m-0 p-0">
+
+			<div class="col-lg-6 bg-light-green">	
+
+				<div class="h1">
+					<h1>{{ 'Nossos<br>
+					reconhecimentos'|_ }}</h1>
+				</div>
+			</div>
+
+			<div class="col-lg-6">	
+			<div class="texts">
+			<div id="sustentabilidade-carousel">
+
+				{% for logo in content.text_3 %}
+
+
+					<div class="item">
+
+						<div class="img">
+							<img src="{{ url('storage/app/media'~logo.logo) }}">
+						</div>
+	
+						<a href="{{ logo.link }}">{{ '&nbsp;Saiba mais&nbsp;'|raw|_ }}</a>
+
+					</div>
+
+
+
+				{% endfor %}
+				</div>
+			
+			</div>
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+{% put styles %}
+
+	<link href="{{ ['assets/css/page.home.css']|theme }}" rel="stylesheet">
+
+{% endput %}
+
+
+
+{% put scripts %}
+
+<script>
+	var slider1 = tns({
+	    container: '#carousel-linha',
+	    mode: 'carousel',
+	    items: 3,
+		speed: 1000,
+		loop: false,
+		autoplayHoverPause: true,
+		autoplayButtonOutput: false,
+		center: true,
+		autoplayTimeout: 7000,
+		autoplay: false,
+		controls: true,
+		nav: false,
+		controlsPosition: 'bottom',
+		navPosition: 'bottom',
+		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>'],
+		mouseDrag: true,
+		responsive: {
+	      740: {
+	        items: 3,
+	        center: true,
+	      },
+	      900: {
+	        items: 3,
+	        center: true,
+	      },
+	      1200: {
+	        items: 4,
+	        center: false,
+	      },
+	   	},
+	});
+
+	slider1.events.on("transitionStart", function(info) {
+	  info.slideItems[info.indexCached].classList.remove(
+	    "active"
+	  );
+
+	  info.slideItems[info.index].classList.add(
+	    "active"
+	  );
+	});
+
+	var slider2 = tns({
+	    container: '#carousel-galeria',
+	    mode: 'carousel',
+	    items: 2,
+	    edgePadding: 0,
+		speed: 1000,
+		loop: true,
+		autoplayHoverPause: true,
+		autoplayButtonOutput: false,
+		center: false,
+		autoplayTimeout: 7000,
+		autoplay: false,
+		controls: true,
+		nav: false,
+		controlsPosition: 'bottom',
+		navPosition: 'bottom',
+		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>'],
+		responsive: {
+	      740: {
+	        items: 2,
+	        edgePadding: 0,
+	      },
+	      900: {
+	        items: 3,
+	        edgePadding: 190,
+	      },
+	      1200: {
+	        items: 3,
+	        edgePadding: 190,
+	      },
+	   	},
+	});
+
+	var slider3 = tns({
+	    container: '#info-carousel',
+	    mode: 'carousel',
+	    items: 1,
+		speed: 1000,
+		loop: true,
+		autoplayHoverPause: true,
+		autoplayButtonOutput: false,
+		center: false,
+		autoplayTimeout: 7000,
+		autoplay: false,
+		controls: false,
+		nav: true,
+		controlsPosition: 'bottom',
+		navPosition: 'bottom',
+		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>'],
+		responsive: {
+	      740: {
+	        items: 1,
+	      },
+	      900: {
+	        items: 2,
+	      },
+	      1200: {
+	        items: 3,
+	      },
+	   	},
+	});
+
+
+	var slider4 = tns({
+	    container: '#sustentabilidade-carousel',
+	    mode: 'carousel',
+	    items: 1,
+		speed: 1000,
+		loop: true,
+		autoplayHoverPause: true,
+		autoplayButtonOutput: false,
+		center: false,
+		autoplayTimeout: 7000,
+		autoplay: false,
+		controls: true,
+		nav: false,
+		controlsPosition: 'bottom',
+		navPosition: 'bottom',
+		controlsText: ['<div class="c-nav left"><i class="fa-solid fa-angle-left"></i></div>','<div class="c-nav right"><i class="fa-solid fa-angle-right"></i></div>']
+	});
+</script>
+{% endput %}

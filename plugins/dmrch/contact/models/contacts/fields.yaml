@@ -1,0 +1,38 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    status:
+        label: dmrch.contact::lang.contacts.markasreed
+        type: switch
+        span: left
+
+    form:  
+        label: dmrch.contact::lang.contacts.form
+        type: text
+        span: left
+        disabled: true
+
+    email:
+        label: dmrch.contact::lang.contacts.email
+        type: text
+        span: right
+        disabled: true
+
+    message:    
+        label: dmrch.contact::lang.contacts.message
+        type: richeditor
+        span: full
+        disabled: true
+
+    files:
+        label: dmrch.contact::lang.contacts.files
+        type: fileupload
+        mode: file
+        disabled: true
+
+    created_at:
+        label: dmrch.contact::lang.contacts.created_at
+        span: full
+        disabled: true

@@ -1,0 +1,40 @@
+title = "Post"
+url = "/post/:slug"
+layout = "default"
+id = blog
+
+[blogPost]
+[banners]
+
+==
+<?php
+function onStart(){
+    $this['top'] = $this->banners->getByGroup(3);
+}
+
+function onEnd()
+{
+    if ($this->post)
+        $this->page->title = $this->post->title;
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<section id="post">
+    <div class="container">
+		{% if post %}
+		    <h1>{{ post.title }}</h1>
+
+		    {% component 'blogPost' %}
+		{% else %}
+		    <h2>Post not found</h2>
+		{% endif %}
+	</div>
+</section>
+
+
+{% put styles %}
+	<link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

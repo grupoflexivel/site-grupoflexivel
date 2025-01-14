@@ -1,0 +1,45 @@
+title = "Política de Privacidade"
+url = "/politica-de-privacidade"
+layout = "default"
+id = politica-de-privacidade
+
+[banners]
+
+==
+<?php
+function onStart(){
+    $this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<div id="contato">	
+	<div class="container">
+
+		<h1>{{ 'Política de Privacidade'|_ }}</h1>
+
+		<div class="row justify-content-center">
+			<div class="col-lg-8">					
+				{% if activeLocale == 'en' %}
+					{{ lgpd.politica_text_en|raw }}
+				{% elseif activeLocale == 'es' %}
+					{{ lgpd.politica_text_es|raw }}
+				{% else %}
+					{{ lgpd.politica_text|raw }}
+				{% endif %}
+			</div>
+
+		</div>
+	
+		
+
+
+	</div>
+</div>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

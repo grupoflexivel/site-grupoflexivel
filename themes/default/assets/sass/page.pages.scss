@@ -1,0 +1,420 @@
+@import 'global';
+
+#top {
+	width: 100%;
+	height: 300px;
+	background: url('../images/img2.jpg') center no-repeat $color-green;
+	background-size: cover;
+}
+
+#pages {
+	h1{
+		text-align: center;
+		margin: 30px;
+	}
+
+	.item {
+		margin: 15px;
+		display: block;
+
+		img {
+			width: 400px;
+			max-width: 100%;
+			border-radius: 20px;			
+		}
+
+		h3 {
+			font-size: 28px;
+			font-weight: $bold;
+			color: $color-blue;
+		}
+	}
+}
+
+#content {
+	padding: 50px 0;
+	font-size: 18px;
+	color: $color-gray;
+
+	h1 {
+		text-align: left;
+	}
+}
+
+
+.search {
+	padding-bottom: 30px;
+	
+	.btn {
+		height: 38px;
+	}
+}
+
+
+//////////////
+
+
+#lps {
+	h1 {
+		font-size: 60px;
+		font-weight: $bold;
+		background: rgb(0,59,56);
+		background: linear-gradient(60deg, rgba(0,59,56,1) 0%, rgba(122,202,38,1) 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		line-height: 70px;
+		display: inline-block;
+
+		@media screen and (max-width: 991px) {
+			font-size: 45px;
+			line-height: 50px;
+
+		}
+	}
+	font-size: 20px;
+}
+
+#lps .block {
+	padding: 100px 0;
+}
+
+
+#lps a, #lps button {
+	font-size: 30px;
+	font-weight: $bold;
+	color: $color-white;
+	background: $color-blue;
+	text-transform: uppercase;
+	padding: 5px 15px;
+	border-radius: 20px;
+
+	&:hover, &focus {
+		background: $color-green;
+	}
+}
+
+#lp-content .img {
+	display: flex;
+	justify-content: center;
+	place-items: center
+}
+
+#carrousel-container {
+	padding: 40px 10px ;
+	background: rgb(32,125,118);
+	background: linear-gradient(90deg, rgba(32,125,118,1) 0%, rgba(138,196,66,1) 100%);
+	border-radius: 15px;
+	position: relative;
+
+	color: $color-white;
+
+	.item {
+		text-align: center;
+
+		img {
+			border-radius: 15px;
+			margin: 10px 0;
+		}
+	}
+
+
+	button {
+		background: transparent;
+		&:hover, &focus {
+			background: transparent;
+		}		
+	}
+
+	button[data-controls="prev"] {
+		left: 25px;
+		position: absolute;
+	}
+
+	button[data-controls="next"] {
+		right: 25px;
+		position: absolute;
+	}
+
+	.tns-outer {
+		padding: 50px !important;
+	}
+
+	.tns-controls {
+		position: absolute;
+		width: 100%;
+		top: calc(50% - 27px);
+		left: 0;
+	}
+}
+
+.crraousel-block {
+	position: relative;
+	button {
+		background: transparent !important;
+		&:hover, &focus {
+			background: transparent;
+		}		
+	}
+
+	button[data-controls="prev"] {
+		left: 25px;
+		position: absolute;
+	}
+
+	button[data-controls="next"] {
+		right: 25px;
+		position: absolute;
+
+	}
+
+	.tns-outer {
+		padding: 50px !important;
+	}
+
+	.tns-controls {
+		position: absolute;
+		width: 100%;
+		top: calc(50% - 27px);
+		left: 0;
+	}
+}
+
+
+
+
+#lp-block-3 {
+	background: url('../images/lp/bg1.png') center no-repeat;
+	padding: 50px;
+}
+
+#lp-block-3 {
+	background: url('../images/lp/bg1.png') center no-repeat;
+	padding: 50px;
+	min-height: 990px;
+}
+
+
+#blog {
+	background: url('../images/lp/bg4.jpg') center no-repeat $color-blue;
+	background-size: cover;
+	padding: 50px 0;
+
+	a {
+		font-size: unset;
+		font-weight: unset;
+		background: unset;
+		text-transform: unset;
+		padding: unset;
+		border-radius: unset;
+	}
+
+	h1 {
+		color: $color-green ;
+		font-size: 60px;
+		font-weight: $bold;
+		text-align: center;
+		display: block;
+
+		background: unset;
+		-webkit-background-clip: unset;
+		-webkit-text-fill-color: unset;
+
+	}
+
+	.post {
+		padding: 15px;
+		text-align: center;
+
+		img {
+			border-radius: 15px;
+		}
+
+		h3 {
+			color: $color-white;
+			font-size: 20px;
+		}
+	}
+}
+
+#contato {
+	.text {
+		margin: 50px;
+		max-width: 570px;
+	}
+
+	form {
+		background: $color-white;
+		padding: 30px;
+		border-radius: 20px;
+
+		label {
+			color: $color-blue;
+			font-weight: $bold;
+		}
+
+
+		button {
+			border: 0;
+		}
+	}
+
+
+	h1 {
+		background: unset !important;
+		-webkit-background-clip: unset !important;
+		-webkit-text-fill-color: unset !important;
+
+	}
+}
+
+
+#more {
+	padding: 50px !important;
+	text-align: center;
+}
+
+#video-1 {
+	height: 750px;
+}
+
+#video-2 {
+	height: 560px;	
+}
+
+.video {
+	min-height: 300px;
+	position: relative;
+	max-height: 100vh;
+	display: flex;
+	overflow: hidden;
+
+	video {
+		position: absolute;
+			  right: 0;
+		  bottom: 0;
+		  min-width: 100%;
+		  min-height: 100%;
+	}
+
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, .47);
+		z-index: 8;
+	}
+
+	.text {
+		position: absolute;
+		inset: 0;
+		z-index: 9;
+		display: flex;
+		justify-content: center;
+		place-items: center;
+		text-align: center;
+	}
+
+	h1 {	
+		margin-top: 85px;
+		position: relative;
+		color: $color-white;
+		font-size: 60px;
+		font-weight: $bold;
+		text-align: center;
+		display: block;
+
+		max-width: 700px;
+
+		background: unset !important;
+		-webkit-background-clip: unset !important;
+		-webkit-text-fill-color: unset !important;
+
+	}
+}	
+
+
+#tecnologias {
+	text-align: center;
+
+	.list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap ;
+		gap: 15px;
+		place-content: center;
+
+		li {
+			max-width: 48%;
+			width: 388px;
+		}
+	
+		.item {
+			background: $color-gray-light;
+			width: 100%;
+			border-radius: 20px;
+			font-size: 14px;
+			color: $color-gray;
+			padding: 15px;
+			display: inline-block;
+			//margin: 10px;
+
+			.text {
+				display: none;
+				padding: 30px 15px;
+			}
+
+			a {
+				font-size: unset;
+				font-weight: unset;
+				background: unset;
+				text-transform: unset;
+				padding: unset;
+				border-radius: unset;
+
+
+				color: $color-blue;
+				font-size: 26px;
+				position: relative;
+				width: 100%;
+				display: block;
+
+				img {
+					max-width: 60%;
+					height: auto;
+					max-height: 35px;
+				}
+
+				i {
+					position: absolute;
+					right: 0;
+					padding: 10px;
+				}
+
+				&.active {
+					i {
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+	}
+
+	@media screen and (max-width: 991px) {
+		.list {
+			//display: grid;
+
+			.item {
+				font-size: 10px;
+
+				.text {
+					padding: 10px 5px;
+					img {
+						max-width: 20%;
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Lp
+
+# Model Form Field configuration
+form: $/dmrch/content/models/lps/fields.yaml
+
+# Model Class name
+modelClass: Dmrch\Content\Models\Lps
+
+# Default redirect location
+defaultRedirect: dmrch/content/lps
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: dmrch/content/lps/update/:id
+    redirectClose: dmrch/content/lps
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: dmrch/content/lps
+    redirectClose: dmrch/content/lps
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

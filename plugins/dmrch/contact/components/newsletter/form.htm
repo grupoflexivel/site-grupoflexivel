@@ -1,0 +1,43 @@
+{% if newsletter.news_success %}
+	<div class="alert alert-success">
+		{{ forms.getConfig('newsletter_success') }}
+	</div>
+{% else %}
+	{% if newsletter.news_errors|length > 0 %}
+		<div class="alert alert-danger mt-1">
+			{{ forms.getConfig('newsletter_error') }}
+		</div>
+	{% endif %}
+{% endif %}
+
+{{ form_ajax('newsletter::onSubmit', { id: 'form-newsletter', update: { 'newsletter::form': '#form-container-newsletter' }}) }}
+
+	<div class="row">
+		{% if forms.getConfig('newsletter_name') %}
+
+			<div class="col-lg-{{ forms.getConfig('name_width') }} col-12 mb-3">
+				{% if forms.getConfig('name_label') %}
+					<label for="name">{{ forms.getConfig('name_label')|_ }}</label>
+				{% endif %}
+				<input type="text" name="name" placeholder="{{ forms.getConfig('name_placeholder')|_ }}" value="{{ post('name')|striptags }}" class="form-control {% if newsletter.news_errors.first('name') %}is-invalid{% endif %}">
+				<div class="invalid-feedback">{{ newsletter.news_errors.first('name')|_ }}</div>
+			</div> 
+		{% endif %}
+
+		<div class="col-lg-{{ forms.getConfig('email_width') }} col-12 mb-3">
+
+			{% if forms.getConfig('email_label') %}
+				<label for="email">{{ forms.getConfig('email_label')|_ }}</label>
+			{% endif %}
+			<input type="email" name="email" placeholder="{{ forms.getConfig('email_placeholder')|_ }}" value="{{ post('email')|striptags }}" class="form-control {% if newsletter.news_errors.first('email') %}is-invalid{% endif %}">			
+			<div class="invalid-feedback">{{ newsletter.news_errors.first('email')|_ }}</div>
+		</div>
+
+		<div class="col-lg-{{ forms.getConfig('button_width') }} col-12">	
+			<button type="submit" class="{{ forms.getConfig('button_class') }}" onclick="$(this).hide();$(this).next('button').show();">{{ forms.getConfig('button_label')|_ }}</button>
+			{# SECOND BUTTOM TO PREVENTE MULTILE SUBMITS, CHECK FOR OTHER SOLUTIONS LATER #}
+			<button type="button" class="{{ forms.getConfig('button_class') }}" style="display: none;" disabled="disabled">{{ forms.getConfig('button_label')|_ }}</button>
+		</div>
+	</div>
+	
+{{ form_close() }}

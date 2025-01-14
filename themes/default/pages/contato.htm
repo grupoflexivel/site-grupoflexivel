@@ -1,0 +1,40 @@
+title = "Contato"
+url = "/contato"
+layout = "default"
+id = contato
+
+[banners]
+
+==
+<?php
+function onStart(){
+    $this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<div id="contato">	
+	<div class="container">
+
+		<h1>{{ 'CONTATO'|_ }}</h1>
+
+		<div class="row justify-content-center">
+			<div class="col-lg-8">
+				
+					{% component 'forms' code='contact' %}
+			</div>
+
+		</div>
+	
+		
+
+
+	</div>
+</div>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

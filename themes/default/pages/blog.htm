@@ -1,0 +1,42 @@
+title = "Blog"
+url = "/blog/:page?"
+layout = "default"
+id = blog
+
+[banners]
+[blogPosts]
+postsPerPage = "10"
+
+[searchForm]
+resultPage = "/blog/busca"
+categoryFilter = 0
+
+==
+<?php
+function onStart(){
+    $this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+
+
+
+<section id="posts">
+    <div class="container">
+        <h1>{{ 'BLOG'|_ }}</h1>
+
+        <div class="search">   
+            {% component 'searchForm' %}
+        </div>
+
+        {% component 'blogPosts' %}
+    </div>
+</section>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

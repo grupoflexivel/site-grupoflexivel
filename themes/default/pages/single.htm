@@ -1,0 +1,34 @@
+title = "Page"
+url = "/:slug"
+layout = "default"
+id = page
+
+[pages]
+
+==
+<?php
+function onStart(){
+	$this['pg'] = $this->pages->getBySlug($this->param('slug'));
+}
+?>
+==
+
+<div id="top" style="background: url('{{ pg.banner.getPath() }}') center no-repeat; background-size: cover;"></div>
+
+
+<section id="content">
+	<div class="container">
+		<div class="text">
+			<h1>{{ pg.title }}</h1>	
+
+
+			{{ pg.text_1|raw }}
+		</div>
+	</div>
+</section>
+
+
+
+{% put styles %}
+	<link href="{{ ['assets/css/page.pages.css']|theme }}" rel="stylesheet">
+{% endput %}

@@ -1,0 +1,17 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: dmrch.contact::lang.newsletter.name
+        searchable: true
+
+    email:
+        label: dmrch.contact::lang.newsletter.email
+        searchable: true
+
+    created_at:
+      label: dmrch.contact::lang.newsletter.created_at
+      type: datetime
+      format: d/m/Y H:i:s

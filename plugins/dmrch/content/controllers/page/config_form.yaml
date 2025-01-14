@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Page
+
+# Model Form Field configuration
+form: $/dmrch/content/models/page/fields.yaml
+
+# Model Class name
+modelClass: Dmrch\Content\Models\Page
+
+# Default redirect location
+defaultRedirect: dmrch/content/page
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: dmrch/content/page/update/:id
+    redirectClose: dmrch/content/page
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: dmrch/content/page
+    redirectClose: dmrch/content/page
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

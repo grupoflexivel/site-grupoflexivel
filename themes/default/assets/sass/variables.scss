@@ -1,0 +1,78 @@
+$color-white: #FFFFFF;
+$color-black: #273136;
+
+$color-gray: #696969;
+$color-gray-light: #EEF3F8;
+$color-red: #ff5c39;
+$color-blue: #003D3D;
+$color-green: #93D500;
+
+$thin: 100;
+$extra-light: 200;
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
+
+$margin: 10px;
+$padding: 10px;
+
+@mixin border($border, $type, $color) {
+  -webkit-border: $border $type $color;
+  -moz-border: $border $type $color;
+  -ms-border: $border $type $color;
+  border: $border $type $color;
+}
+
+@mixin border-radius($radius) {
+ -webkit-border-radius: $radius;
+ -moz-border-radius: $radius;
+ -ms-border-radius: $radius;
+ border-radius: $radius;
+}
+
+@mixin drop-shadow($arguments) {
+  -webkit-box-shadow: $arguments;
+  -moz-box-shadow: $arguments;
+  box-shadow: $arguments;
+}
+
+@mixin transition-duration($duration: 0.2s) {
+  -moz-transition-duration: $duration;
+  -webkit-transition-duration: $duration;
+  -o-transition-duration: $duration;
+  transition-duration: $duration;
+}
+
+@mixin transform($tr) {
+  -webkit-transform: $tr;
+  -moz-transform: $tr;
+  -o-transform: $tr;
+  -ms-transform: $tr;
+  transform: $tr;
+}
+
+@mixin rotation($deg:5deg){
+  @include transform(rotate($deg));
+}
+
+@mixin scale($ratio:1.5){
+  @include transform(scale($ratio));
+}
+
+@mixin transition($duration:0.4s) {
+  -webkit-transition: all $duration ease-in-out;
+  -moz-transition: all $duration ease-in-out;
+  -ms-transition: all $duration ease-in-out;
+  -o-transition: all $duration ease-in-out;
+  transition: all $duration ease-in-out;
+}
+
+@mixin font-face($path, $fontWheight, $name) {
+  font-family: $name;
+  font-weight: $fontWheight;
+  src: url($path);
+}

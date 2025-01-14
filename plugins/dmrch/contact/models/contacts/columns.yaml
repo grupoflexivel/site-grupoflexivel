@@ -1,0 +1,21 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    form:
+        label: dmrch.contact::lang.contacts.form
+        searchable: true
+
+    email:
+        label: dmrch.contact::lang.contacts.email
+        searchable: true
+
+    status:
+        label: dmrch.contact::lang.contacts.status
+        type: partial
+        path: ~/plugins/dmrch/contact/models/contacts/_view_column.htm
+
+    created_at:
+        label: dmrch.contact::lang.contacts.created_at
+        type: datetime

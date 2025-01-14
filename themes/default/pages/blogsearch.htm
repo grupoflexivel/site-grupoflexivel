@@ -1,0 +1,52 @@
+title = "Blog"
+url = "/blog/busca/:search?/:page?"
+layout = "default"
+id = blog
+
+[banners]
+[searchResult]
+searchTerm = "{{ :search }}"
+pageNumber = "{{ :page }}"
+hightlight = 0
+postsPerPage = 10
+noPostsMessage = "Nenhum post encontrado"
+sortOrder = "published_at desc"
+excludeCategories[] = 1
+excludeCategories[] = 2
+excludeCategories[] = 3
+categoryPage = "blog"
+postPage = "blog/posts"
+
+[searchForm]
+resultPage = "blog/busca"
+categoryFilter = 0
+
+==
+<?php
+function onStart(){
+    $this['top'] = $this->banners->getByGroup(3);
+}
+?>
+==
+
+<div id="top" {% if top.0.image %}style="background: url({{ top.0.image.getPath() }}) center no-repeat; background-size: cover;"{% endif %}></div>
+
+<section id="posts">
+    <div class="container">
+
+        <h1>{{ 'BLOG'|_ }}</h1>
+
+        <div class="search">   
+            {% component 'searchForm' %}
+        </div>
+
+        <br>
+
+        {% component 'searchResult' %}
+    </div>
+</section>
+
+
+{% put styles %}
+    <link href="{{ ['assets/css/page.blog.css']|theme }}" rel="stylesheet">
+{% endput %}

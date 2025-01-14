@@ -1,0 +1,130 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: Titulo
+        type: text
+        span: left
+
+    slug:
+        label: Slug
+        type: text
+        span: right
+        preset:
+            field: name
+            type: slug
+
+    bg_0:
+        label: Imagem
+        type: fileupload
+        mode: image
+        span: left
+
+    video_1:
+        label: Video
+        type: fileupload
+        mode: file
+        span: right
+
+    bg_1:
+        type: fileupload
+        mode: image
+        span: left
+
+    text_1:
+        type: richeditor
+
+    img_1:
+        type: fileupload
+        mode: image
+        span: left
+    
+    gallery:
+        label: Galeria
+        type: fileupload
+        mode: image
+
+    text_2:
+        type: richeditor
+
+    img_2:
+        type: fileupload
+        mode: image
+        span: left
+
+    bg_2:
+        type: fileupload
+        mode: image
+        span: left
+    
+    text_3:
+        type: richeditor
+    
+    
+    bg_3:
+        type: fileupload
+        mode: image
+        span: left
+
+    bg_6:
+        label: Imagem
+        type: fileupload
+        mode: image
+        span: left
+
+    # video_2:
+    #     label: Video
+    #     type: fileupload
+    #     mode: file
+    #     span: right
+
+    video_3:
+        label: Video
+        type: text
+        span: right
+
+    text_4:
+        type: richeditor
+
+    products:
+        label: Serviços
+        type: repeater 
+        form:
+            fields:
+                logo:
+                    label: image
+                    type: mediafinder
+                    span: left
+                    
+                name:
+                    label: Nome
+                    span: right
+
+                desc:
+                    type: richeditor
+
+    bg_4:
+        type: fileupload
+        mode: image
+        span: left
+
+    text_5:
+        type: richeditor
+
+    bg_5:
+        type: fileupload
+        mode: image
+        span: left
+
+    text_6:
+        type: richeditor
+
+    blog:
+        label: Categoria Blog
+        type: radio        
+
+    custom_css:
+        label: CSS customizado
+        type: textarea

@@ -1,0 +1,35 @@
+<div id="primary-navigation">
+	<div class="container">	
+			
+		<div class="logo">
+			<a href="{{ url('/') }}"><img src="{{ 'assets/images/logo.png'|theme }}" alt="Grupo Flexível" width="190px"></a>
+		</div>
+
+		<nav>
+			{% partial "layout/menu" %}
+		</nav>
+
+		{% component 'localePicker' %}
+	</div>
+</div>
+
+<div id="mobile-navigation">
+	<div class="container">
+		<div class="row" style="width: 100%; margin-left: 0px;">
+
+			<div class="col-2 text-left"> 
+				<a id="simple-menu" href="#mmenu" style="margin: 0;" onclick=" $('#mmenu').show('fast');"><i class="fas fa-bars"></i></a>
+			</div>
+
+			<div class="col-8 text-center">
+				<div class="logo"><a href="{{ url('/') }}"><img src="{{ 'assets/images/logo.png'|theme }}" alt="Grupo Flexível" width="130px" style="max-width: 100%"></a></div>
+			</div>
+		</div>
+
+		<div id="mmenu" style="display: none;">
+			{% partial "layout/menu" %}
+		</div>
+
+		{% component 'localePicker' %}
+	</div>
+</div>

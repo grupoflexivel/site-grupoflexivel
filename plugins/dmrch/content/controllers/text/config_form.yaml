@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Text
+
+# Model Form Field configuration
+form: $/dmrch/content/models/text/fields.yaml
+
+# Model Class name
+modelClass: Dmrch\Content\Models\Text
+
+# Default redirect location
+defaultRedirect: dmrch/content/text
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: dmrch/content/text/update/:id
+    redirectClose: dmrch/content/text
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: dmrch/content/text
+    redirectClose: dmrch/content/text
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

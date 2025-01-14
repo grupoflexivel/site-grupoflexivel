@@ -1,0 +1,18 @@
+$default-color: #222222;
+$default-radius: 5px;
+
+
+$info: #17a2b8;
+$danger: #dc3545;
+$warning: #ffc107;
+$success: #28a745;
+
+$primary-color: #003D3D;
+$primary-color-light: lighten($primary-color, 20%);
+$primary-color-dark: darken($primary-color, 35%);
+
+$secondary-color: #86C13F;
+$secondary-color-light: lighten($secondary-color, 5%);
+$secondary-color-dark: darken($secondary-color, 35%);
+
+$gutter: 10px;
